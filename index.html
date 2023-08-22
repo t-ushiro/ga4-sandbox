@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GA4 on S3 Static Website</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333366;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 14px 0;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-TX80EKF95R"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-TX80EKF95R");
+    </script>
+  </head>
+  <body>
+    <h1>Hello, World!</h1>
+    <button onclick="trackEvent()">Track Event</button>
+
+    <script>
+      function trackEvent() {
+        // イベントをGA4に送信
+        gtag("event", "click", {
+          event_category: "button",
+          event_label: "track-event button clicked",
+        });
+      }
+    </script>
+  </body>
+</html>
